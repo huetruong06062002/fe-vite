@@ -8,7 +8,7 @@ export interface ITest{
 
 interface IUser{
   name: string,
-  age: number,
+  age: number | string,
   city: string
 }
 
@@ -19,7 +19,7 @@ interface IProps{
 }
 
 function ComponentExcercise(props: IProps) {
-  const {name: defaultProps = 'truong', age : defaultName = 23} = props
+  const {name: defaultProps = '', age : defaultName = ''} = props
   const [name, setName] = useState<string>(defaultProps);
   const [age, setAge] = useState<number | string>(defaultName);
   const [city, setCity] = useState<string[]>([
@@ -28,11 +28,7 @@ function ComponentExcercise(props: IProps) {
     "Hồ Chí Minh",
   ]);
 
-  const [users, setUsers] = useState<IUser[]>([
-    { name: "Eric", age: 25, city: "Hà Nội" },
-    { name: "Eric1", age: 26, city: "Đà Nẵng" },
-    { name: "Eric2", age: 27, city: "Hồ Chí Minh" },
-  ]); 
+  const [users, setUsers] = useState<IUser[]>([]); 
 
   const [selected, setSelected] = useState<string>('Hồ Chí Minh');
 
@@ -41,7 +37,16 @@ function ComponentExcercise(props: IProps) {
   const [isShowBtn, setIsShowBtn] = useState<boolean>(false);
 
   const handleSubmit = (e: React.FormEvent<HTMLInputElement>) => {
-    e.preventDefault();
+    // e.preventDefault();
+    const user = {
+      name: name,
+      age : age,
+      city : selected
+    }
+    console.log(user);
+    setUsers([...users, user])
+    setName(''),
+    setAge('')
   }
 
   const handleOnChangeName = (e : React.ChangeEvent<HTMLInputElement>)=>{
@@ -77,7 +82,7 @@ function ComponentExcercise(props: IProps) {
           </select>
         </div>
 
-        <input type="submit" value="Submit" onSubmit={handleSubmit} />
+        <input type="submit" value="Submit" onClick={handleSubmit} />
       </div>
       <hr />
       <div>List Users:</div>
