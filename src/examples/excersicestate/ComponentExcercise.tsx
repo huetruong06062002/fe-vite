@@ -34,35 +34,50 @@ function ComponentExcercise(props: IProps) {
     { name: "Eric2", age: 27, city: "Hồ Chí Minh" },
   ]); 
 
+  const [selected, setSelected] = useState<string>('Hồ Chí Minh');
+
   const [test, setState] = useState<ITest | null>(null)
 
   const [isShowBtn, setIsShowBtn] = useState<boolean>(false);
+
+  const handleSubmit = (e: React.FormEvent<HTMLInputElement>) => {
+    e.preventDefault();
+  }
+
+  const handleOnChangeName = (e : React.ChangeEvent<HTMLInputElement>)=>{
+    setName(e.target.value);
+  }
+
   return (
     <>
       <div className="form-user">
         <div>
           <label>Name:</label>
           <br />
-          <input type="text" value={name} />
+          <input type="text" value={name} onChange={handleOnChangeName}/>
           <br />
         </div>
         <div>
           <label>Age:</label>
           <br />
-          <input type="text" value={age} />
+          <input type="text" value={age} onChange={(e) => setAge(e.target.value)} />
           <br />
         </div>
         <div>
           <label>City:</label>
           <br />
-          <select>
+          <select
+          onChange={
+            (e) => setSelected(e.target.value)
+          }
+          >
             {city.map((item) => {
-              return <option key={item}>{item}</option>;
+              return <option key={item} value={item}>{item}</option>;
             })}
           </select>
         </div>
 
-        <input type="submit" value="Submit" />
+        <input type="submit" value="Submit" onSubmit={handleSubmit} />
       </div>
       <hr />
       <div>List Users:</div>
