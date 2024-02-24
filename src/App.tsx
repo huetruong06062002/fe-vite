@@ -22,8 +22,8 @@ function App() {
         </a>
       </div>
       <p className="read-the-docs">
-        {/* <ComponentExcercise/> */}
-        <ComponentProps address='tp.hcm'/>
+        <ComponentExcercise age={25}/>
+        {/* <ComponentProps address='tp.hcm'/> */}
       </p>
     </div>
   )

@@ -12,9 +12,16 @@ interface IUser{
   city: string
 }
 
-function ComponentExcercise() {
-  const [name, setName] = useState<string>("");
-  const [age, setAge] = useState<number | string>("");
+interface IProps{
+  name?: string,
+  age?: number | string,
+  city?: string
+}
+
+function ComponentExcercise(props: IProps) {
+  const {name: defaultProps = 'truong', age : defaultName = 23} = props
+  const [name, setName] = useState<string>(defaultProps);
+  const [age, setAge] = useState<number | string>(defaultName);
   const [city, setCity] = useState<string[]>([
     "Hà Nội",
     "Đà Nẵng",
