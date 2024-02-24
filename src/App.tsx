@@ -23,7 +23,7 @@ function App() {
       </div>
       <p className="read-the-docs">
         {/* <ComponentExcercise/> */}
-        <ComponentProps name='truong' age={22} address='tp.hcm'/>
+        <ComponentProps address='tp.hcm'/>
       </p>
     </div>
   )

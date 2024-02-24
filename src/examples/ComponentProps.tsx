@@ -1,13 +1,14 @@
 import React from 'react'
 
 interface IProps {
-  name: string,
-  age: number,
-  address: string,
+  //required => ? optional
+  name?: string,
+  age?: number,
+  address?: string,
 }
 
 function ComponentProps(props: IProps) {
-  const {name, age, address} = props
+  const {name = 'truong1', age, address} = props
 
   return (
     <div>
