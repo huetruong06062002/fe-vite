@@ -1,5 +1,17 @@
 import React, { useState } from "react";
 import "./Excercise.css";
+
+export interface ITest{
+  name: string,
+  age: number
+}
+
+interface IUser{
+  name: string,
+  age: number,
+  city: string
+}
+
 function ComponentExcercise() {
   const [name, setName] = useState<string>("");
   const [age, setAge] = useState<number | string>("");
@@ -9,11 +21,13 @@ function ComponentExcercise() {
     "Hồ Chí Minh",
   ]);
 
-  const [users, setUsers] = useState([
+  const [users, setUsers] = useState<IUser[]>([
     { name: "Eric", age: 25, city: "Hà Nội" },
     { name: "Eric1", age: 26, city: "Đà Nẵng" },
     { name: "Eric2", age: 27, city: "Hồ Chí Minh" },
-  ]);
+  ]); 
+
+  const [test, setState] = useState<ITest | null>(null)
 
   const [isShowBtn, setIsShowBtn] = useState<boolean>(false);
   return (
