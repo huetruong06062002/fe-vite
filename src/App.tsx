@@ -5,6 +5,7 @@ import './App.css'
 import { ComponentExample } from './examples/ComponentExample'
 import ComonentExample1 from './examples/ComonentExample1'
 import ComponentState from './examples/ComponentState'
+import ComponentExcercise from './examples/excersicestate/ComponentExcercise'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -19,17 +20,8 @@ function App() {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
       <p className="read-the-docs">
-        <ComponentState/>
+        <ComponentExcercise/>
       </p>
     </div>
   )
