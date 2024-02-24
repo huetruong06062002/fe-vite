@@ -6,6 +6,7 @@ import { ComponentExample } from './examples/ComponentExample'
 import ComonentExample1 from './examples/ComonentExample1'
 import ComponentState from './examples/ComponentState'
 import ComponentExcercise from './examples/excersicestate/ComponentExcercise'
+import ComponentProps from './examples/ComponentProps'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -21,7 +22,8 @@ function App() {
         </a>
       </div>
       <p className="read-the-docs">
-        <ComponentExcercise/>
+        {/* <ComponentExcercise/> */}
+        <ComponentProps name='truong' age={22} address='tp.hcm'/>
       </p>
     </div>
   )
