@@ -4,6 +4,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import { ComponentExample } from './examples/ComponentExample'
 import ComonentExample1 from './examples/ComonentExample1'
+import ComponentState from './examples/ComponentState'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -28,7 +29,7 @@ function App() {
         </p>
       </div>
       <p className="read-the-docs">
-       <ComonentExample1/>
+        <ComponentState/>
       </p>
     </div>
   )
